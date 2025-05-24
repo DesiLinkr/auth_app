@@ -81,7 +81,6 @@ export default defineConfig({
   },
   plugins: [
     new Dotenv(),
-
     new rspack.HtmlRspackPlugin({
       template: "./index.html",
     }),

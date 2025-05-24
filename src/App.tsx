@@ -1,11 +1,32 @@
 import ReactDOM from "react-dom/client";
 
+import { createBrowserRouter,
+  RouterProvider,} from "react-router-dom";
+import SignUp from "./SignUp";
+import SignIn from "./SignIn";
+const router = createBrowserRouter([
+  {
+    path: "/sign_up",
+    element: <SignUp/> ,
+  },
+  {
+    path: "/sign_in",
+    element:<SignIn/> ,
+  },
+  {
+    path: "*",
+    element: <div>404 - Page Not Found</div>,
+  },
+  
+]); 
+ 
+const App = () => {
 
-const App = () => (
-  <div >
-    
-  </div>
-);
+
+  return      <RouterProvider router={router} /> 
+  
+
+}
 
 const root = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
 
