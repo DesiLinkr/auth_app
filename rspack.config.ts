@@ -21,7 +21,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"), // or '.' if your components are at project root
+      "@": path.resolve(__dirname, "."), // or '.' if your components are at project root
     },
     extensions: ["...", ".ts", ".tsx", ".jsx"],
   },
