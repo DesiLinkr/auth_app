@@ -7,7 +7,12 @@ import SignIn from "./SignIn";
 const router = createBrowserRouter([
   {
     path: "/sign_up",
-    element: <SignUp/> ,
+    element: 
+    
+    <div className="overflow-hidden  h-auto ">
+      <SignUp></SignUp>
+    </div>
+     ,
   },
   {
     path: "/sign_in",
@@ -23,11 +28,11 @@ const router = createBrowserRouter([
 const App = () => {
 
 
-  return      <RouterProvider router={router} /> 
+  return      <RouterProvider router={router}  /> 
   
 
 }
 
 const root = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
 
-root.render(<App />);
+root.render(<App  />);
