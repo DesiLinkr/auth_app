@@ -24,18 +24,22 @@ const SignUp = () => {
           <a href={`${process.env.SHELL_APP}/sso-login`} className="text-red-500 hover:underline">Log in with SSO</a>
         </div>
 <div className='flex flex-col  md:flex-col-reverse'>
-
-<div>
+<form>
 <div className="grid w-full max-w-sm items-center gap-2">
       <Label htmlFor="email" className='font-[552] text-xs  text-gray-700'>Email</Label>
-      <Input type="email" className='h-10' id="email" placeholder="Email" />
+      <Input type="email" className='h-10' required id="email" placeholder="Email" />
     </div>
     <div className="grid  max-w-sm items-center gap-2 mt-3">
       <Label htmlFor="password" className='font-semibold  text-xs text-gray-700'>Password</Label>
-      <Input type="password" className='h-10' id="email" placeholder="Password" />
+      <Input type="password" className='h-10' minLength={8} required id="email" placeholder="Password" />
     </div>
-    <Button className='bg-red-500 w-full mt-10 rounded-sm   text-sm' variant={'destructive'} >Create free account</Button>
-    </div>
+    <Button className='bg-red-500 w-full mt-10 rounded-sm   text-sm' type="submit" variant={'destructive'} >Create free account</Button>
+   
+    </form>
+
+
+
+
     <div className='flex flex-col  md:flex-col-reverse'>
 <div className='mt-6'>
 
