@@ -14,10 +14,11 @@
     "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": {
+      "*": ["./@mf-types/*"],
       "@/*": ["./*"],
     }
   },
-  "include": ["src"],
+"include": ["src", "components", "lib"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
