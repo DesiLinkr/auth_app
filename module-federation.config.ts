@@ -3,7 +3,7 @@ export const mfConfig = {
   exposes: {
     "./sign_up": "./src/SignUp.tsx",
     "./sign_in": "./src/SignIn.tsx",
-    "./forgot_password": "./src/pages/ForgotPassword.tsx",
+    "./forgot_password": "./src/ForgotPassword.tsx",
   },
   shared: ["react", "react-dom"],
 };
