@@ -4,6 +4,7 @@ import { createBrowserRouter,
   RouterProvider,} from "react-router-dom";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
+import ForgotPassword from "./ForgotPassword";
 const router = createBrowserRouter([
   {
     path: "/sign_up",
@@ -16,8 +17,21 @@ const router = createBrowserRouter([
   },
   {
     path: "/sign_in",
-    element:<SignIn/> ,
+    element:
+    <div className="overflow-hidden  h-auto ">
+      <SignIn/>
+    </div> ,
   },
+
+  {
+    path: "/forgot_password",
+    element:
+    <div className="overflow-hidden  h-auto ">
+  <ForgotPassword></ForgotPassword>
+
+    </div> ,
+  },
+  
   {
     path: "*",
     element: <div>404 - Page Not Found</div>,
