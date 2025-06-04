@@ -50,7 +50,7 @@ const SignIn = () => {
    <TypographySmall text='Or' className='relative bottom-2 bg-white   w-8 justify-center flex'></TypographySmall>
    </div>
    </div>
-   <div className='flex  flex-col justify-between h-[8rem]'>
+   <div className='flex  flex-col justify-between h-[5.5rem]'>
    <div className=' relative  '>
    <Button variant="outline" className='w-full rounded-sm text-sm'>Continue with Google</Button>
  
@@ -63,7 +63,6 @@ const SignIn = () => {
    <Button variant="outline" className='w-full rounded-sm text-sm'>Continue with Apple</Button>
    </div>
 
-   <Button variant="outline" className='w-full rounded-sm text-sm'>Continue with Single Sign On</Button>
  
    
    </div>

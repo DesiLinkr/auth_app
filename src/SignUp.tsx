@@ -17,12 +17,10 @@ const SignUp = () => {
 <div className=' flex justify-center    lg:w-[55vw] h-full '>
 <div className=' relative  bottom-[60px]  '>
 <TypographyH2 text='Create your account' className=''  />
-<div className="text-sm text-center mb-6 mt-7 text-gray-800 ">
+<div className="text-sm  mb-6 mt-7 text-gray-800 w-full  ">
           <span>Already have an account? </span>
           <a href={`${process.env.SHELL_APP}/login`} className="text-red-500 hover:underline">Log in</a>
-          <span> or </span>
-          <a href={`${process.env.SHELL_APP}/sso-login`} className="text-red-500 hover:underline">Log in with SSO</a>
-        </div>
+         </div>
 <div className='flex flex-col  md:flex-col-reverse'>
 <form>
 <div className="grid w-full max-w-sm items-center gap-2">
@@ -50,7 +48,7 @@ const SignUp = () => {
 </div>
 <div className=' relative  '>
 <Button variant="outline" className='w-full rounded-sm text-sm'>Continue with Google</Button>
-<img src='google-logo-icon.png' className='absolute top-2.5 left-16  ' width={16} height={16}></img>
+<img src='google-logo-icon.png' className='absolute top-2.5 left-10  ' width={16} height={16}></img>
 </div>
 </div>
 </div>
