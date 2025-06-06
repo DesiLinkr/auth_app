@@ -18,9 +18,8 @@ const router = createBrowserRouter([
   {
     path: "/sign_in",
     element:
-    <div className="overflow-hidden  h-auto ">
+
       <SignIn/>
-    </div> ,
   },
 
   {
