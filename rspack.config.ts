@@ -29,6 +29,9 @@ export default defineConfig({
   devServer: {
     port: 3001,
     historyApiFallback: true,
+    static: {
+      directory: path.resolve(__dirname, "public"), // ✅ expose images
+    },
     watchFiles: [path.resolve(__dirname, "src")],
   },
   output: {

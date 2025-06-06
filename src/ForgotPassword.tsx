@@ -11,12 +11,16 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
+import { resolveAsset } from '@/utils/resolveAsset'
+
+const logo = resolveAsset("/logo.png");
+
 
 const ForgotPassword = () => {
   return (
     <div className='bg-gray-100 h-screen flex justify-center'>
         <div>
-      <img src='logo.png' width={300} height={100} className='relative bottom-14'></img>
+      <img src={logo} width={300} height={100} className='relative bottom-14'></img>
       <Card className=' w-[22rem]  md:w-[25rem]  relative bottom-26'>
   <CardHeader>
     <CardTitle className='text-2xl pb-2'>Forgot your password?</CardTitle>
