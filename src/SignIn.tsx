@@ -1,10 +1,10 @@
 import React from 'react'
-import {TypographyH2, TypographyP, TypographySmall} from '../components/Typography'
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
+import {TypographyH2, TypographyP, TypographySmall} from './components/Typography'
+import { Input } from "@/src/components/ui/input"
+import { Separator } from "@/src/components/ui/separator"
 
-import {Label} from '@/components/ui/label'
-import {Button} from '@/components/ui/button'
+import {Label} from '@/src/components/ui/label'
+import {Button} from '@/src/components/ui/button'
 import { resolveAsset } from '@/utils/resolveAsset'
 
 const logo = resolveAsset("/logo.png");

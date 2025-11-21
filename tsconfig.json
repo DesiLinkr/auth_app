@@ -18,7 +18,7 @@
       "@/*": ["./*"],
     }
   },
-"include": ["src", "components", "lib","utils"],
+"include": ["src", "src/components", "src/lib","utils"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
