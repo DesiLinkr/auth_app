@@ -1,11 +1,22 @@
 import ReactDOM from "react-dom/client";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import { createBrowserRouter,
   RouterProvider,} from "react-router-dom";
-import SignUp from "./SignUp";
-import SignIn from "./SignIn";
-import ForgotPassword from "./ForgotPassword";
+
+import GithubCallback from "./pages/GithubCallback";
+import LinkedinCallback from "./pages/LinkedinCallback";
+import RestPassword from "./pages/RestPassword";
+import { Toaster } from "sonner";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import ForgotPassword from "./pages/ForgotPassword";
+import SecureAccount from "./pages/SecureAccount";
 const router = createBrowserRouter([
+  {
+    path: "/github",
+    element: <GithubCallback />,
+  },
   {
     path: "/sign_up",
     element: 
@@ -35,15 +46,32 @@ const router = createBrowserRouter([
     path: "*",
     element: <div>404 - Page Not Found</div>,
   },
-  
+  {
+    path:"/linkedin",
+    element:<LinkedinCallback></LinkedinCallback>
+  },
+  {
+    path:"/restpassword/:token",
+    element:<RestPassword/>
+  },
+  {
+    path:"/secure",
+    element:<SecureAccount/>
+
+  }
 ]); 
  
 const App = () => {
 
 
-  return      <RouterProvider router={router}  /> 
+  return    (
   
-
+  <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID as string}>
+        <Toaster></Toaster>
+  <RouterProvider router={router}/>
+  </GoogleOAuthProvider> 
+  
+  )
 }
 
 const root = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
