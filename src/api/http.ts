@@ -7,7 +7,7 @@ declare module "axios" {
 }
 
 const http = axios.create({
-  baseURL: process.env.api,
+  baseURL: "http://localhost:5000/api",
   withCredentials: true,
 });
 
