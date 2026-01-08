@@ -15,10 +15,11 @@
     "baseUrl": ".",
     "paths": {
       "*": ["./@mf-types/*"],
-      "@/*": ["./*"],
+  "@/*": ["src/*"]
+
     }
   },
-"include": ["src", "src/components", "src/lib","utils"],
+"include": ["src", "src/components", "src/lib","src/utils"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

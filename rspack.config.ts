@@ -1,8 +1,6 @@
 import * as path from "node:path";
-import { DefinePlugin } from "@rspack/core"; // ✅ Correct
-
 import { defineConfig } from "@rspack/cli";
-import { rspack } from "@rspack/core";
+import { rspack, DefinePlugin } from "@rspack/core"; // ✅ Add DefinePlugin
 import * as RefreshPlugin from "@rspack/plugin-react-refresh";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 
@@ -20,25 +18,26 @@ export default defineConfig({
     main: "./src/index.ts",
   },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "."), // or '.' if your components are at project root
-    },
     extensions: ["...", ".ts", ".tsx", ".jsx"],
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+      // or '.' if your components are at project root
+    },
   },
 
   devServer: {
     port: 3001,
     historyApiFallback: true,
     static: {
-      directory: path.resolve(__dirname, "public"), // ✅ expose images
+      directory: path.resolve(__dirname, "public"),
     },
     watchFiles: [path.resolve(__dirname, "src")],
   },
+
   output: {
     // You need to set a unique value that is not equal to other applications
     uniqueName: "auth_app",
-    // publicPath must be configured if using manifest
-    publicPath: "http://localhost:3001/",
+    publicPath: "auto", // ✅ REQUIRED for Vercel & MF
   },
 
   experiments: {
@@ -82,14 +81,44 @@ export default defineConfig({
       },
     ],
   },
+
   plugins: [
     new Dotenv(),
+    new DefinePlugin({
+      "process.env.DEVMODE": JSON.stringify(process.env.DEVMODE),
+      "process.env.API": JSON.stringify(process.env.API),
+      "process.env.GOOGLE_CLIENT_ID": JSON.stringify(
+        process.env.GOOGLE_CLIENT_ID
+      ),
+      "process.env.GITHUB_CLIENT_ID": JSON.stringify(
+        process.env.GITHUB_CLIENT_ID
+      ),
+      "process.env.GITHUB_REDIRECT_URI": JSON.stringify(
+        process.env.GITHUB_REDIRECT_URI
+      ),
+      "process.env.LINKEDIN_CLIENT_ID": JSON.stringify(
+        process.env.LINKEDIN_CLIENT_ID
+      ),
+      "process.env.LINKEDIN_REDIRECT_URI": JSON.stringify(
+        process.env.LINKEDIN_REDIRECT_URI
+      ),
+    }),
+    // keep dotenv ONLY for local
+    isDev && new Dotenv(),
+    // ✅ IMPORTANT FIX: Inject env vars into browser build
+    new DefinePlugin({
+      "process.env": JSON.stringify(process.env),
+    }),
+
     new rspack.HtmlRspackPlugin({
       template: "./index.html",
     }),
+
     new ModuleFederationPlugin(mfConfig),
+
     isDev ? new RefreshPlugin() : null,
   ].filter(Boolean),
+
   optimization: {
     minimizer: [
       new rspack.SwcJsMinimizerRspackPlugin(),
